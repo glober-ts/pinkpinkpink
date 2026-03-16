@@ -1,0 +1,1132 @@
+
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
+        }
+        
+        /* 画面全体で横スクロールを防止 */
+html, body {
+  overflow-x: hidden;
+}
+
+    
+    /* 画像や動画が画面幅を超えないように設定 */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 固定幅が原因のはみ出しがないか確認 */
+.container, .header-container, .nav-menu, .hero-slideshow, .hero-static {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+    
+        body {
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 80px; /* Added to account for fixed header */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+@media (max-width: 1024px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            background-color: #d35a87;
+            border-radius: 50%;
+            margin-right: 15px;
+            position: relative;
+            display: none; /* 新しいロゴを使うために非表示 */
+        }
+
+        /* 新しいロゴのスタイル */
+        .logo-image-new {
+            width: auto;
+            height: 40px; /* 適切なサイズに調整 */
+            margin-right: 15px;
+        }
+
+        .site-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #d35a87;
+        }
+
+        .site-subtitle {
+            font-size: 14px;
+            color: #888;
+            margin-left: 8px;
+            display: none;
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-item {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .nav-item a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-item a:hover {
+            color: #d35a87;
+        }
+
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #d35a87;
+            transition: width 0.3s;
+        }
+
+        .nav-item a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 3px 0;
+            border-radius: 1px;
+            transition: 0.4s;
+        }
+
+        /* Mobile menu styles */
+        @media (max-width: 1024px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: #fff;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+
+            /* Adjust logo and title for mobile */
+            .site-title {
+                font-size: 16px;
+            }
+
+            .site-subtitle {
+                font-size: 12px;
+            }
+        }
+        
+        /* New Hero Section with Image Slideshow */
+.hero-slideshow {
+  background: linear-gradient(to top, #ffc1cc, #fff); /* ピンクを基調としたグラデーション */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 0;
+  position: relative;
+}
+
+
+.slideshow-container {
+  width: 100%;
+  max-width: 1920px;
+  height: 70vh;        /* 画面縦サイズの70% */
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+        
+/* 画像は最大サイズで表示、縦横比は元のまま */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+
+.hero-static {
+  width: 100%;
+  max-width: 1920px;
+  height: 85vh; /* 画面縦サイズの70% */
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  /*  display:none;*/
+}
+
+
+    /* PC向けの hero-image 定義にアニメーション追加 */
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      background: url('../img/lp192108_2025harucam.jpg') center center / cover no-repeat;
+      /* フェードイン＆ズームインエフェクト */
+      animation: fadeInZoom 2s ease-out forwards;
+    }
+    
+    @keyframes fadeInZoom {
+      from {
+        opacity: 0;
+        transform: scale(1.1); /* わずかに拡大した状態から */
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    /* タブレット以下の画面用 */
+    @media (max-width: 1024px) {
+      .hero-static {
+        aspect-ratio: 1 / 1;
+        /* 高さを自動調整 */
+        height: auto;
+      }
+      .hero-static .hero-image {
+        background: url('../img/lp_2025harucam.jpg') center center no-repeat;
+        background-size: contain;
+        /* 同じエフェクトを適用 */
+        animation: fadeInZoom 2s ease-out forwards;
+      }
+    }
+    
+    
+    
+/* スクロールダウンアイコン */
+.hero-image .scroll-indicator {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;  /* gap を2pxに変更 */
+}
+
+.scroll-indicator .arrow {
+  width: 30px;
+  height: 30px;
+  border: solid black;
+  border-width: 0 5px 5px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  animation: fadeArrow 1.5s infinite;
+}
+
+/* バウンスアニメーション */
+/* それぞれの矢印に順次のディレイを設定 */
+.scroll-indicator .arrow:nth-child(1) {
+  animation-delay: 0s;
+}
+.scroll-indicator .arrow:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.scroll-indicator .arrow:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeArrow {
+  0% {
+    opacity: 0;
+    transform: translateY(0) rotate(45deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(5px) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px) rotate(45deg);
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .scroll-indicator {
+    display: none !important;
+  }
+}
+
+
+
+        /* 白い空間用のスタイル */
+        .white-spacer {
+            height: 60px; /* 必要な高さに調整可能 */
+            background-color: #ffffff; /* 白色 */
+            /*  display:none;*/
+            
+        }
+        
+        @media (max-width: 1024px) {
+  .white-spacer {
+    height: 30px; /* お好みの高さに調整してください */
+  display:none;
+    
+  }
+}
+
+        @media (max-width: 1024px) {
+            .slideshow-container {
+                width: 100%;
+                height: auto;
+                max-height: none; 
+            }
+            
+            .slide {
+                position: absolute;
+                width: 100%;
+                height: auto;
+            }
+            
+            .slide img {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slideshow-container {
+                width: 100%;
+                height: auto;
+                min-height: 200px;
+            }
+            
+            .hero-slideshow {
+                padding: 10px 0;
+            }
+        }
+        
+        /* Main Info Section (Former Hero) */
+.main-info {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  background: url('../img/sakura-sq-1.jpg') center/cover no-repeat;
+  position: relative;
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #ffeaf0;
+}
+        
+        .main-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/200/200') top left/200px no-repeat;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .main-info-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .main-info-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #d35a87;
+            line-height: 1.7;
+        }
+        
+        .main-info-description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        
+        
+        .main-info-signature {
+            font-size: 14px;
+            font-style: italic;
+            text-align: right;
+            margin-top: 20px;
+            
+            /* display:none;*/
+        }
+        
+.section-title {
+  text-align: center;
+  font-size: 24px;
+  color: #d35a87;
+  margin-bottom: 20px;
+  background: none;
+  padding: 0;
+  box-shadow: none;
+  font-weight: bold;
+}
+
+
+
+/* タブレット以下の画面幅に合わせた調整 */
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 20px;            /* 画面が小さい場合は文字サイズを下げる */
+    margin: 40px 0 20px;
+    padding: 15px 0;
+  }
+}
+
+
+
+
+/* イベントセクション */
+.event-section {
+  max-width: 1200px;  /* 必要に応じて幅を調整 */
+  margin: 30px auto;  /* 上下の余白は60px、左右は自動で中央寄せ */
+  background-color: #ffeaf0;
+  padding: 40px 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+  /*  display:none; */
+
+}
+
+.event-section .section-title {
+  font-size: 28px;
+  color: #d35a87;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* 背景に白色を半透明で追加 */
+  display: inline-block;  /* テキスト部分の背景のみを適用 */
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.event-content p {
+  font-size: 22px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) { /* スマートフォンの画面サイズに適用 */
+  .event-content {
+    font-size: 20px; /* 文字サイズを20pxに設定 */
+  }
+}
+
+.event-content .highlight {
+  color: #FF0000;
+  font-weight: bold;
+}
+
+.event-notice {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.event-notice h3 {
+  margin-bottom: 15px;
+  color: #d35a87;
+}
+
+.event-notice ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+.event-keyword p {
+  margin: 0 0 1em;  /* 各段落の下に余白を設定 */
+}
+
+.keyword-title,
+.keyword-highlight {
+  text-align: center;
+}
+
+/* キーワードをより目立たせるスタイル */
+.keyword-highlight {
+  display: inline-block;
+  font-size: 1.5em;             /* フォントサイズを大きく */
+  font-weight: bold;
+  color: #ffffff;               /* 文字色は白 */
+  background-color: #d35a87;    /* 背景色にブランドカラーを使用 */
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s infinite; /* パルスアニメーションで動きを追加 */
+}
+
+/* パルス効果のアニメーション */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+        
+        /* アコーディオンスタイル */
+        @media (max-width: 1024px) {
+            .main-info-content {
+                max-height: 300px;
+                overflow: hidden;
+                transition: max-height 0.5s ease;
+            }
+            .main-info-content.expanded {
+                max-height: 2000px;
+            }
+            .read-more-btn {
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 50%);
+                cursor: pointer;
+                color: #d35a87;
+                font-weight: bold;
+            }
+        }
+        @media (max-width: 1024px) and (min-width: 481px) {
+            .main-info-content {
+                max-height: 450px;
+            }
+        }
+        @media (max-width: 480px) {
+            .main-info-content {
+                max-height: 450px;
+            }
+        }
+        .read-more-btn {
+            display: none;
+        }
+
+
+/* カテゴリーセクション全体 */
+.category-section {
+  max-width: 1200px;   /* 必要なら幅を指定 */
+  margin: 80px auto;   /* 上下の余白は80px、左右は自動で中央寄せ */
+  padding: 20px;
+  background-color: #f8f8f8; /* 元の背景色 */
+  border-radius: 10px;
+}
+
+
+/* カテゴリータイトル */
+.category-title {
+  text-align: center;
+  font-size: 24px;
+  color: #d35a87; /* 他のタイトルと区別するためにカラーを変更 */
+  margin-bottom: 20px;
+}
+
+/* カテゴリーリスト */
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* PCでは2列 */
+  gap: 20px;
+  padding: 10px;
+}
+
+/* タブレット・スマホでは1列 */
+@media (max-width: 1024px) {
+  .category-list {
+    grid-template-columns: 1fr; /* 1列表示 */
+  }
+}
+
+/* 各アイテムのデザイン */
+.category-list li {
+  list-style: none;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #ffffff; /* 個別カードの背景 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 画像のスタイル */
+.category-list img {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+/* リンクのデザイン */
+.category-list a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: block;
+  padding: 10px 0;
+}
+
+/* リンクホバー時のアニメーション */
+.category-list a:hover {
+  color: #d35a87;
+  transition: color 0.3s ease;
+}
+
+/* おすすめジュエリー（プロダクトセクション）にも同じ背景を適用 */
+.product-section {
+  margin: 60px auto;
+  padding: 40px 20px;
+  background-color: #f8f8f8;  /* カテゴリーセクションと同じ背景色 */
+  border-radius: 10px;
+}
+
+/* 商品カードの背景を白に設定 */
+.product-section .b-product-list li {
+  background-color: #ffffff;
+}
+
+
+.product-section .blog-item {
+  background-color: #ffffff;  /* 通常時は白 */
+}
+
+.product-section .blog-item:hover {
+  background-color: #ffffff;  /* ホバー時も白 */
+}
+
+
+        /* ▼▼▼ Bのコード構造を活かすスタイル ▼▼▼ */
+        /* .b-product-list: 商品一覧をグリッド表示にする */
+.b-product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* PC用: 3列 */
+  gap: 20px;
+}
+
+/* タブレット・スマホ用: 2列 */
+@media (max-width: 1024px) {
+  .b-product-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+        /* li のデザイン */
+        .b-product-list li {
+            border: 1px solid #eee;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .b-product-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* a 全体をクリック可能にして、余白を確保 */
+        .b-product-list li a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            padding: 15px;
+        }
+
+        /* 画像 */
+        .b-product-list li img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            max-height: 375px;
+        }
+        
+        .b-product-list img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* 画像全体を枠内に収め、縦横比を維持する */
+  max-height: 375px;   /* コンテンツ同様、最大高さを揃える */
+  display: block;      /* inline-blockなどで余計な余白が出ないようにする */
+}
+
+        /* 商品名＋価格を内包する p */
+        .b-product-list li p {
+            margin: 10px 0 0;
+            line-height: 1.4;
+        }
+
+        /* Bのクラス名 sprice を活かす */
+        .sprice {
+            font-weight: bold;
+            color: #d35a87; /* ピンク系ブランドカラーなど */
+            display:none;
+        }
+
+        /* Price Range Section */
+        .price-range-section {
+            padding: 30px 0;
+            background-color: #fff9fb;
+              margin-bottom: 40px;  /* 下部に余白を追加 */
+        }
+
+        .price-range-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+              padding: 0 20px; /* 両サイドに20pxの余白を追加 */
+        }
+
+        .price-range-item {
+            text-align: center;
+            padding: 25px 15px;
+            border: 1px solid #f8d7e3;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+            background-color: white;
+        }
+
+        .price-range-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(211, 90, 135, 0.1);
+            border-color: #d35a87;
+        }
+
+        .price-range {
+            font-weight: bold;
+            font-size: 18px;
+            color: #d35a87;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .price-range::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background-color: #d35a87;
+        }
+
+        @media (max-width: 768px) {
+            .price-range-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .price-range-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+.price-link {
+  text-decoration: none;  /* 下線を消す */
+  color: inherit;         /* 文字色を継承（必要に応じて変えてください） */
+}
+
+.price-link:hover {
+  text-decoration: none;  /* ホバー時も下線を付けない */
+  /* color: #d35a87; などにするとホバー時のみ色を変えられます */
+}
+
+
+
+        /* Blog Section */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* PCは3列 */
+  gap: 20px;
+  margin-bottom: 30px;
+}
+        
+
+/* スマホ・タブレット: 画面幅1024px以下で2列に */
+@media (max-width: 1024px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+ 
+/* ブログアイテムの枠線や角丸 */
+.blog-item {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
+/* ブログ画像の設定 */
+.blog-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;     /* 画像の縦横比を維持して収める */
+  max-height: 375px;       /* 画像の最大高さを375pxに */
+  margin: 20px auto 0; /* 上部に20pxの空白、左右は自動で中央寄せ */
+    display: block;
+}
+
+/* 画像以外の情報領域 */
+.blog-info {
+  padding: 15px;
+}
+
+@media (max-width: 1024px) {
+  .blog-image {
+    width: 100%;
+    max-width: 90%;  /* 画像の最大幅を親要素の90%に制限 */
+    margin: 20px auto 0;  /* 上部に20pxの余白、左右は自動で中央寄せ */
+  }
+}
+
+
+/* タイトル等の調整 */
+.blog-title {
+  font-size: 18px; /* 小さい画面で大きすぎないフォントサイズ */
+  text-align: center;
+  word-wrap: break-word; /* 長い単語でも途中で折り返す */
+  overflow-wrap: break-word; /* どんな場合でも折り返し */
+  white-space: normal; /* 途中で途切れず、折り返す */
+  line-height: 1.4; /* 行間を適切に */
+  padding: 5px;
+}
+
+/* スマホ・タブレット用の調整 */
+@media (max-width: 1024px) {
+  .blog-title {
+    font-size: 16px; /* スマホ・タブレットではフォントサイズを小さめに */
+  }
+}
+
+
+/* ブログのリンク全体をブロック化してクリック範囲を広げる */
+.blog-item a {
+  display: block;
+  text-decoration: none; /* 下線を消す */
+  color: inherit;        /* 親の文字色を引き継ぐ */
+  /* 必要ならパディングやホバー演出も追加可 */
+}
+
+/* 例: ホバー時の軽い装飾を付けたい場合 */
+.blog-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+
+
+        /* Footer */
+        footer {
+            background-color: #f8f8f8;
+            padding: 40px 0;
+            border-top: 1px solid #eee;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #d35a87;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            color: #888;
+            font-size: 12px;
+        }
+        
+        /* Cherry Blossom Animation */
+        .cherry-blossom {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            background-image: url('../img/cherry_blossom.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            opacity: 0.8;
+            animation: fall linear forwards;
+            z-index: 10;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .pagination-button {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 0 5px;
+            color: #333;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        .pagination-button:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .pagination-button.active {
+            background-color: #d35a87;
+            color: #fff;
+            border-color: #d35a87;
+        }
+        
+        #backToTop {
+  /* 初期状態で非表示 */
+  display: none;
+
+  /* 幅・高さを同じにして正方形 */
+  width: 50px;
+  height: 50px;
+
+  /* 固定配置（画面の右下） */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  /* デザイン */
+  background-color: #d35a87;
+  color: #fff;
+  border: none;
+  border-radius: 5px; /* 角丸にしたい場合は適宜調整 */
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px; /* テキストを縦方向中央にするため */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s;
+   z-index: 9999; 
+}
+
+#backToTop:hover {
+  opacity: 0.8;
+}
+
+        
+        
+/*おすすめジュエリー　もっと見るボタン*/        
+        .load-more-wrapper {
+  text-align: center;
+  margin: 30px 0;
+}
+
+#loadMore {
+  padding: 12px 24px;
+  background-color: #d35a87;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+#loadMore:hover {
+  background-color: #b84476;
+}
+
+        
+/* フローティングバナー（通常時は左下） */
+#floating-banner {
+    position: fixed;
+    left: 10px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease, bottom 0.3s ease;
+    z-index: 1000;
+}
+
+/* 10%スクロールで表示 */
+#floating-banner.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* **ページ最下部に到達したら** 非表示 */
+#floating-banner.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* タブレット用（1024px以下） */
+@media (max-width: 1024px) {
+    #floating-banner {
+        left: 5px; /* 端に寄せる */
+        bottom: 15px; /* 位置を少し調整 */
+    }
+
+    #floating-banner img {
+        width: 70px; /* サイズを小さく */
+        border-radius: 8px;
+    }
+}
+
+/* スマホ用（767px以下） */
+@media (max-width: 767px) {
+    #floating-banner {
+        left: 5px;
+        bottom: 10px;
+    }
+
+    #floating-banner img {
+        width: 40px; /* スマホでさらに小さく */
+        border-radius: 6px;
+    }
+}
+
