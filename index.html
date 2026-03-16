@@ -151,7 +151,11 @@
 <div class="event-keyword">
   <p>備考欄へご記載ください</p>
   <p class="keyword-title">▼▽▼キーワードはこちら▼▽▼</p>
-  <p class="keyword-highlight" id="copyKeyword">【2026春キャン】</p>
+  <div class="campaign-keyword">
+    <span id="copyKeyword">【2026春キャン】</span>
+    <p class="copy-note">※クリックでコピーできます</p>
+    <p class="copy-done" id="copyDone">コピーしました</p>
+  </div>
 </div>
 
 <section class="campaign-box">
@@ -1671,14 +1675,21 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- JavaScript -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  var keywordElem = document.getElementById('copyKeyword');
-  keywordElem.addEventListener('click', function() {
-    var keywordText = keywordElem.innerText;
-    navigator.clipboard.writeText(keywordText).then(function() {
-      alert('キーワードがコピーされました: ' + keywordText);
+  var keyword = document.getElementById('copyKeyword');
+  var done = document.getElementById('copyDone');
+
+  if (!keyword || !done) {
+    return;
+  }
+
+  keyword.addEventListener('click', function() {
+    navigator.clipboard.writeText('2026春キャン').then(function() {
+      done.style.display = 'block';
+      setTimeout(function() {
+        done.style.display = 'none';
+      }, 2000);
     }).catch(function(err) {
       console.error('コピーに失敗しました', err);
-      alert('コピーに失敗しました');
     });
   });
 });
