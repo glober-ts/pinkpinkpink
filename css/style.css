@@ -629,35 +629,42 @@ img, video {
   margin: 0 0 1em;  /* eỉɗ]ݒ */
 }
 
-.keyword-title,
-.keyword-highlight {
+.keyword-title {
   text-align: center;
 }
 
-/* L[[hڗX^C */
-.keyword-highlight {
-  display: inline-block;
-  font-size: 1.5em;             /* tHgTCY傫 */
-  font-weight: bold;
-  color: #ffffff;               /* F͔ */
-  background-color: #d35a87;    /* wiFɃuhJ[gp */
-  padding: 10px 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  animation: pulse 2s infinite; /* pXAj[Vœǉ */
+.campaign-keyword {
+  text-align: center;
+  margin: 20px 0 30px;
 }
 
-/* pXʂ̃Aj[V */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
+#copyKeyword {
+  display: inline-block;
+  font-size: 26px;
+  font-weight: 700;
+  background: #fff;
+  border: 2px solid #e86c9a;
+  border-radius: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#copyKeyword:hover {
+  background: #ffe7f1;
+}
+
+.copy-note {
+  font-size: 12px;
+  color: #777;
+  margin-top: 6px;
+}
+
+.copy-done {
+  font-size: 12px;
+  color: #e84c82;
+  margin-top: 4px;
+  display: none;
 }
 
         
