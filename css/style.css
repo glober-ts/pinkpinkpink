@@ -661,10 +661,10 @@ img, video {
 }
 
 .copy-done {
+  display: none;
   font-size: 12px;
   color: #e84c82;
-  margin-top: 4px;
-  display: none;
+  margin-top: 6px;
 }
 
         

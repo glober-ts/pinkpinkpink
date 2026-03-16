@@ -154,7 +154,7 @@
   <div class="campaign-keyword">
     <span id="copyKeyword">【2026春キャン】</span>
     <p class="copy-note">※クリックでコピーできます</p>
-    <p class="copy-done" id="copyDone">コピーしました</p>
+    <p class="copy-done" id="copyDone">コピーしました！</p>
   </div>
 </div>
 
@@ -1683,14 +1683,13 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   keyword.addEventListener('click', function() {
-    navigator.clipboard.writeText('2026春キャン').then(function() {
-      done.style.display = 'block';
-      setTimeout(function() {
-        done.style.display = 'none';
-      }, 2000);
-    }).catch(function(err) {
-      console.error('コピーに失敗しました', err);
-    });
+    navigator.clipboard.writeText('2026春キャン');
+
+    done.style.display = 'block';
+
+    setTimeout(function() {
+      done.style.display = 'none';
+    }, 2000);
   });
 });
 </script>
