@@ -357,7 +357,12 @@ img, video {
 
 @media (max-width: 1024px) {
   .hero {
-    min-height: 78vh;
+    min-height: min(76svh, 760px);
+    min-height: min(76dvh, 760px);
+  }
+
+  .hero__bg img {
+    object-position: 56% 28%;
   }
 
   .hero__overlay {
@@ -367,8 +372,10 @@ img, video {
   }
 
   .hero__content {
-    min-height: 78vh;
-    padding: 110px 18px 88px;
+    min-height: min(76svh, 760px);
+    min-height: min(76dvh, 760px);
+    padding: 84px 18px 72px;
+    justify-content: flex-start;
   }
 
   .hero__title {
@@ -1174,4 +1181,3 @@ img, video {
         border-radius: 6px;
     }
 }
-
