@@ -606,6 +606,44 @@ img, video {
   margin-left: 20px;
 }
 
+.campaign-support-box {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 36px 28px;
+  margin: 60px auto;
+  max-width: 900px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  line-height: 1.9;
+}
+
+.campaign-support-box h3 {
+  color: #d43f73;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.campaign-support-box ul {
+  margin: 16px 0;
+  padding-left: 20px;
+}
+
+.campaign-support-box li {
+  margin-bottom: 6px;
+}
+
+.campaign-support-box a {
+  color: #2a6df4;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .campaign-support-box {
+    padding: 26px 18px;
+    margin: 40px 16px;
+  }
+}
+
 .event-keyword p {
   margin: 0 0 1em;  /* eỉɗ]ݒ */
 }
