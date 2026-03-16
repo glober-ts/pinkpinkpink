@@ -587,58 +587,39 @@ img, video {
   font-weight: bold;
 }
 
-.event-notice {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 20px;
-  margin-top: 30px;
-  text-align: left;
-}
-
-.event-notice h3 {
-  margin-bottom: 15px;
-  color: #d35a87;
-}
-
-.event-notice ul {
-  list-style: disc;
-  margin-left: 20px;
-}
-
-.campaign-support-box {
+.campaign-box {
   background: #ffffff;
   border-radius: 12px;
-  padding: 36px 28px;
+  padding: 36px 32px;
   margin: 60px auto;
   max-width: 900px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   line-height: 1.9;
+  text-align: left;
 }
 
-.campaign-support-box h3 {
-  color: #d43f73;
-  font-size: 20px;
-  margin-bottom: 20px;
+.campaign-box h3 {
   text-align: center;
+  color: #d43f73;
+  margin-bottom: 20px;
 }
 
-.campaign-support-box ul {
+.campaign-box ul {
   margin: 16px 0;
   padding-left: 20px;
 }
 
-.campaign-support-box li {
+.campaign-box li {
   margin-bottom: 6px;
 }
 
-.campaign-support-box a {
+.campaign-box a {
   color: #2a6df4;
   text-decoration: underline;
 }
 
 @media (max-width: 768px) {
-  .campaign-support-box {
+  .campaign-box {
     padding: 26px 18px;
     margin: 40px 16px;
   }
