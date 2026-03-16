@@ -251,6 +251,11 @@ img, video {
   text-shadow: 0 4px 18px rgba(31, 10, 19, 0.32);
 }
 
+.hero__title-line {
+  display: inline;
+  white-space: nowrap;
+}
+
 .hero__campaign {
   margin-top: 18px;
   font-size: clamp(1rem, 2.1vw, 1.35rem);
@@ -379,8 +384,13 @@ img, video {
   }
 
   .hero__title {
-    letter-spacing: 0.06em;
-    line-height: 1.3;
+    font-size: clamp(2.06rem, 7vw, 2.3rem);
+    letter-spacing: 0.05em;
+    line-height: 1.16;
+  }
+
+  .hero__title-line {
+    display: block;
   }
 
   .hero__campaign {
