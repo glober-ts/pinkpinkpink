@@ -214,9 +214,12 @@ img, video {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(130deg, rgba(48, 17, 33, 0.42) 18%, rgba(160, 62, 109, 0.3) 52%, rgba(255, 235, 245, 0.12) 100%),
-    linear-gradient(to top, rgba(38, 16, 28, 0.56) 0%, rgba(38, 16, 28, 0.08) 65%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(180, 60, 120, 0.18) 50%,
+    rgba(0, 0, 0, 0.28) 100%
+  );
 }
 
 .hero__content {
@@ -371,9 +374,12 @@ img, video {
   }
 
   .hero__overlay {
-    background:
-      linear-gradient(130deg, rgba(48, 17, 33, 0.48) 16%, rgba(160, 62, 109, 0.34) 52%, rgba(255, 235, 245, 0.14) 100%),
-      linear-gradient(to top, rgba(38, 16, 28, 0.6) 0%, rgba(38, 16, 28, 0.1) 64%);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(180, 60, 120, 0.18) 50%,
+      rgba(0, 0, 0, 0.28) 100%
+    );
   }
 
   .hero__content {
