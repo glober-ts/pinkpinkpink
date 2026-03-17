@@ -443,6 +443,37 @@ img, video {
   }
 }
 
+
+.campaign-highlight {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.campaign-mini {
+  font-size: 18px;
+  color: #a04c73;
+  letter-spacing: 0.1em;
+}
+
+.campaign-main {
+  font-size: 48px;
+  color: #e54282;
+  margin: 10px 0;
+  font-weight: 700;
+}
+
+.campaign-sub {
+  font-size: 16px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .campaign-main {
+    font-size: 36px;
+  }
+}
+
         /* ԗp̃X^C */
         .white-spacer {
             height: 60px; /* Kvȍɒ\ */
